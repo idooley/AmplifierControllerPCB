@@ -16,3 +16,7 @@ Some things you'll find in the repo:
 ## Isaac's DIY Project
 
 This is simply a DIY project under work by Isaac Dooley. I am no expert in these matters, but hopefully this thing will work fine.
+
+Some known issues with the initial 2014/01/04 version:
+* Silk-screened text on the PCB overlaps the pads of the ATMEGA 168.
+* The PWM 1 output is connected to a non-PWM-capable pin on the ATMEGA 168. It should be moved to the unused PWM pin nearby.
