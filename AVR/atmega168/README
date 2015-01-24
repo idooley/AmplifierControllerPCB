@@ -1,0 +1,66 @@
+Original fuse settings on the atmega168pb:
+
+
+MacBookPro2:atmega168 isaacdooley$ avrdude -c arduino -b 19200 -P /dev/tty.usbmodem1411 -p atmega168p -u -U lfuse:r:-:h -U hfuse:r:-:h -U efuse:r:-:h -F
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e9415
+avrdude: Expected signature for ATmega168P is 1E 94 0B
+avrdude: reading lfuse memory:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: writing output file "<stdout>"
+0x62
+avrdude: reading hfuse memory:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: writing output file "<stdout>"
+0xdf
+avrdude: reading efuse memory:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: writing output file "<stdout>"
+0x1
+
+avrdude done.  Thank you.
+
+
+
+
+> avrdude -c arduino -b 19200 -P /dev/tty.usbmodem1411 -p atmega168p -u -U lfuse:r:-:i -U hfuse:r:-:i -U efuse:r:-:i -F
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e9415
+avrdude: Expected signature for ATmega168P is 1E 94 0B
+avrdude: reading lfuse memory:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: writing output file "<stdout>"
+:01000000629D
+:00000001FF
+avrdude: reading hfuse memory:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: writing output file "<stdout>"
+:01000000DF20
+:00000001FF
+avrdude: reading efuse memory:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: writing output file "<stdout>"
+:0100000001FE
+:00000001FF
+
+avrdude done.  Thank you.
