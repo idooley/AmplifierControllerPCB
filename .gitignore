@@ -1,1 +1,5 @@
 .DS_store
+AVR/atmega168/blink.elf
+AVR/atmega168/blink.hex
+AVR/atmega168/blink.o
+Atmel-42176-ATmega48PB-88PB-168PB_Datasheet.pdf
