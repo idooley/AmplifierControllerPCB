@@ -18,11 +18,12 @@ Some things you'll find in the repo:
 
 ## Isaac Dooley's DIY Project
 
-This is simply a DIY project under work by Isaac Dooley. I am no expert in these matters, but hopefully this thing will work fine.
+This is simply a DIY hobby project under work by Isaac Dooley. I am no expert in these matters, but hopefully this thing will work fine.
 
 Some known issues with the initial 2015/01/04 version:
 * Silk-screened text on the PCB overlaps the pads of the ATMEGA 168.
 * The PWM 1 output is connected to a non-PWM-capable pin on the ATMEGA 168. It should be moved to the unused PWM pin nearby.
+* The switch inputs leave the pins floating, which won't work very well. The right way to do this is to use the internal pull-up resistor on these pins, and have the switch instead go from the pin to ground.
 
 My first attempt was a bit of a failures. First I set bad fuse values on the ATMEGA168, making it impossible to program it further or modify the fuse values (without a high-voltage programmer). Then I broke some pads on the PCB while trying to unsolder the chip to replace it.
 
