@@ -1,6 +1,10 @@
 # An avrdude command that can program my board
-# Uses an arduino as an ISP (for example I have a Leonardo with slightly modified ArduinoISP software, using 5/6 of its ISP pins, and pin 10 -> reset)
-AVRDUDE=avrdude -c arduino -b 19200 -P /dev/tty.usbmodem1411 -p atmega168p -u
+
+# Use an arduino as an ISP (for example I have a Leonardo with slightly modified ArduinoISP software, using 5/6 of its ISP pins, and pin 10 -> reset)
+#AVRDUDE=avrdude -c arduino -b 19200 -P /dev/tty.usbmodem1411 -p atmega168p -u
+
+# Use an USBasp_H6
+AVRDUDE=avrdude -c usbasp -p atmega168p -u
 AVR=atmega168
 
 
