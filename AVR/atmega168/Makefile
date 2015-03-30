@@ -8,22 +8,34 @@ AVRDUDE=avrdude -c usbasp -p atmega168p -u
 AVR=atmega168
 
 
-all: blink.hex amp_controller.hex
+all: blink.hex amp_controller.hex lcd_driver.hex
 
-%.o: %.c 
-	avr-gcc -c -g -Os -Wall -mmcu=$(AVR) $< -o $@
+%.o: %.c lcd_lib.h
+	avr-gcc -std=c11 -c -g -Os -Wall -mmcu=$(AVR) $< -o $@
 
 %.elf: %.o
-	avr-gcc $< -mmcu=$(AVR) -o $@
+	avr-gcc $^ -mmcu=$(AVR) -o $@
+
+lcd_driver.o: lcd_driver.c lcd_lib.h
+	avr-gcc -std=c11 -c -g -Os -Wall -mmcu=$(AVR) $< -o $@
+
+lcd_driver.elf:	lcd_driver.o lcd_lib.o
+	avr-gcc lcd_driver.o lcd_lib.o -mmcu=$(AVR) -o $@
 
 %.hex: %.elf
-	avr-objcopy -O ihex $< $@
+	avr-objcopy -O ihex $^ $@
 
 install_blink: blink.hex
-	$(AVRDUDE) -U flash:w:$< -F -v
+	$(AVRDUDE) -U flash:w:$^ -F -v
 
 install_amp_controller: amp_controller.hex
-	$(AVRDUDE) -U flash:w:$< -F -v
+	$(AVRDUDE) -U flash:w:$^ -F -v
+
+install_lcd_driver: lcd_driver.hex
+	$(AVRDUDE) -U flash:w:$^ -F -v
+
+lcd_lib.o: lcd_lib.c lcd_lib.h
+	avr-gcc  -std=c11 -c -g -Os -Wall -mmcu=$(AVR) $< -o $@
 
 readfuse:
 	$(AVRDUDE) -U lfuse:r:-:h -U hfuse:r:-:h -U efuse:r:-:h -F
