@@ -36,15 +36,15 @@ int main(void)
 	    int h = sensor_data.humidity_integral;
 	    //float h = sensor_data.humidity_decimal;
 	    	    
-	    char line1[17];
-	    char line2[17];
+	    uint8_t line1[17];
+	    uint8_t line2[17];
 	    	    
-	    snprintf (line1, 16, "h=%4d          ", h);
-	    snprintf (line1, 16, "t=%4d          ", t);	    
+	    snprintf ((char*)line1, 16, "h=%4d          ", h);
+	    snprintf ((char*)line2, 16, "t=%4d          ", t);	    
 
 	    LCDclr();
-	    CopyStringtoLCD((uint8_t*)line1, 0, 0);
-	    CopyStringtoLCD((uint8_t*)line2, 1, 0);
+	    CopyStringtoLCD(line1, 0, 0);
+	    CopyStringtoLCD(line2, 1, 0);
 	    
 	  }
 	  else if (state == DHT_ERROR_CHECKSUM){

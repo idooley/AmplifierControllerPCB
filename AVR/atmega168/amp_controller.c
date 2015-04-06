@@ -22,6 +22,8 @@
 #define true 1
 #define false 0
 
+void powerTransformerOn();
+void powerTransformerOff();
 
 // States
 enum state_t {
@@ -49,7 +51,7 @@ int isTriggerOn() {
 }
 
 /** Set the output pin values to match the specified state */
-updateOutputs(enum state_t s){
+void updateOutputs(enum state_t s){
   switch (s) {
   case NORMAL_ON:
     powerTransformerOn();
