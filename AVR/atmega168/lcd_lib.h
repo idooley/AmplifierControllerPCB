@@ -15,7 +15,6 @@
 #ifndef LCD_LIB
 #define LCD_LIB
 
-#define F_CPU 16000000
 #include <inttypes.h>
 
 

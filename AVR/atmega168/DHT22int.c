@@ -198,7 +198,7 @@ ISR(EXT_INTERRUPT_VECTOR){
 	   P4 is also aprox. 80us) then the sensor responded pulling up the line. Now the 
 	   bit transmission will start and we only need to measure the with of each bit. So,
 	   the external interrupt can stay on falling edge. */
-	else if((state == DHT_SENSOR_PULLUP) && (counter_us > 60) && (counter_us < 100)){ // Sensor responded (Period P4).
+	else if((state == DHT_SENSOR_PULLUP) && (counter_us > 40) && (counter_us < 100)){ // Sensor responded (Period P4).
 		state = DHT_TRANSFERING; // Change state
 		return;
 	}
