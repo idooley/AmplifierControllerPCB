@@ -4,7 +4,6 @@
  * Blinks each of the 4 "Signal*" LEDs on the PCB in sequence, once per second
  */
 
-#define F_CPU 16000000
 #include <avr/io.h>
 #include <util/delay.h>
 #include "../leah_library/pin_macros.h"
